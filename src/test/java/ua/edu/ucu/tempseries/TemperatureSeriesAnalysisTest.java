@@ -3,7 +3,16 @@ package ua.edu.ucu.tempseries;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import java.util.InputMismatchException;
+
 public class TemperatureSeriesAnalysisTest {
+
+    @Test(expected = InputMismatchException.class)
+    public void testCheckFalse(){
+        double[] temperatureSeries = {-1000};
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
+        seriesAnalysis.checkFalse(temperatureSeries);
+    }
 
     @Test
     public void testAverageWithOneElementArray() {
